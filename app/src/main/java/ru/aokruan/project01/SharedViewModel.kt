@@ -4,15 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import ru.aokruan.domainm.models.Cat
-import ru.aokruan.domainm.usecases.GetAllCatsUseCase
+import ru.aokruan.domain.models.Cat
+import ru.aokruan.domain.usecases.GetAllCatsUseCase
 import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
-class SharedViewModel @Inject constructor(
-    private val getAllCatsUseCase: GetAllCatsUseCase
-) : ViewModel() {
+class SharedViewModel @Inject constructor(private val getAllCatsUseCase: GetAllCatsUseCase) : ViewModel() {
     private val _cats: MutableLiveData<List<Cat>> = MutableLiveData(listOf())
     val cats: LiveData<List<Cat>> = _cats
 
